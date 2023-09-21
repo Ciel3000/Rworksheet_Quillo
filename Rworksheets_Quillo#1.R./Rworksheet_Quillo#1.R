@@ -122,7 +122,8 @@
   #12
     # Enter this statement:
     
-    { x <- 0 + x + 5 + }
+    { x <- 0 
+      + x + 5 + }
     
     # Describe the output.
       #Error: unexpected '}' in "  { x <- 0 + x + 5 + }"
