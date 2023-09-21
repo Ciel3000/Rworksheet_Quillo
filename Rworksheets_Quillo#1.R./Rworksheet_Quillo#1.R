@@ -109,11 +109,12 @@
   #11
     listof24to1 <- seq(24,1)
     newlistof24to1 <-  Filter(function(i) { all(i %% 3 == 0 | i %%  5 == 0 )!=0}, seq(24,1))
+    newlistof24to1
     summednewlistif24to1 <- sum(newlistof24to1)
     summednewlistif24to1
   
   #11.a
-    dataofnewlistof24to1 <- length(newlistof24to1)
+    dataofnewlistof24to1 <- length(newlistof24to1)+ length(back100to1) + listof24to1
     dataofnewlistof24to1
     
   #11.b
