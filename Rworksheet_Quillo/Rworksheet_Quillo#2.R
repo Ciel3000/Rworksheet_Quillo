@@ -1,15 +1,20 @@
 #1
 #a
+
 operator <- seq(-5,5)
 operator
+
 #b
+
 x <- 1:7
 x
 
 #2 Create a vecror using seq() function
 # a. seq(1, 3, by=0.2) # specify step size
+
 vect1 <- seq(1, 3, by=0.2) # specify step size
 vect1
+
 # it counts 1 to 3 but with decimals that increases by .2
 
 #3 A factory has a census of its workers. There are 50 workers in total. The following
@@ -18,20 +23,24 @@ vect1
 #24,33, 41, 53, 40, 18, 44, 38, 41, 48, 27, 39, 19, 30, 61, 54, 58, 26,
 #18.
 
-age <- list(34, 28, 22, 36, 27, 18, 52, 39, 42, 29, 35, 31, 27,
+workersAge <- list(34, 28, 22, 36, 27, 18, 52, 39, 42, 29, 35, 31, 27,
             22, 37, 34, 19, 20, 57, 49, 50, 37, 46, 25, 17, 37, 43, 53, 41, 51, 35,
             24,33, 41, 53, 40, 18, 44, 38, 41, 48, 27, 39, 19, 30, 61, 54, 58, 26,
             18)
-age
+workersAge
+
 #3.a Access 3rd element, what is the value?
+
 age3rd <- age[3]
 age3rd  
 
 #3.b Access 2nd and 4th element, what are the values?
+
 age2and4 <- age[c(2,4)]
 age2and4
 
 #3.c Access all but the 4th and 12th element is not
+
 allageexp4and12 <- age[-c(4,12)]
 allageexp4and12
 
@@ -41,18 +50,22 @@ names(x) <- c("first"=3, "second"=0, "third"=9)
 names(x)
 
 #4.a Print the results. Then access x[c("first", "third")].
+
 x[c("first", "third")]
 
 #5 Create a sequence x from -3:2.
+
 x <- seq(-3:2)
 x
 
 #5.a Modify 2nd element and change it to 0
+
 x[2] <- 0
 x
 # it changes the 2nd element to zero('0')
 
 #5.b
+
 x[2] <- 0
 x
 
@@ -70,6 +83,7 @@ dataframe1 <- data.frame("Month  " = month, "Price per Liter(PhP)" = pricePerLit
 print(dataframe1)
 
 #6 b. What is the average fuel expenditure of Mr. Cruz from
+
 ave <- weighted.mean(pricePerLiter,purchaseQuantity)
 ave
 
@@ -77,14 +91,19 @@ ave
 #(in miles) of 141 “major” rivers in North America, as compiled by the US Geological
 #Survey”
 
-data <- c(length(rivers), sum(rivers), mean(rivers), median(rivers), var(rivers),
+riverData <- c(length(rivers), sum(rivers), mean(rivers), median(rivers), var(rivers),
           sd(rivers), min(rivers), max(rivers))
-data
+
 
 #7 b. What are the results?
 # it gets the datapoints of rivers(length), sum, mean, medial, var, sd, min, and max of the built in datasets.
 
-#7  Write the R scripts and its outputs.
+riverData
+
+# it shows the data points, sum, mean, median, var, sd, min, and max
+
+#7.c Write the R scripts and its outputs.
+
 data <- c(length(rivers), sum(rivers), mean(rivers), median(rivers), var(rivers),
           sd(rivers), min(rivers), max(rivers))
 data
@@ -121,6 +140,14 @@ mdPowerfulCelebrities
 # as csv fle(PowerRanking). Import the csv fle into
 # the RStudio. What is the R script?
 
+viewmdPowerfulCelebrities <- View(mdPowerfulCelebrities)
+viewmdPowerfulCelebrities
+
+write.csv(mdPowerfulCelebrities, file = "PowerRanking.csv", row.names = TRUE)
+
+csvmdPowerfulCeleb <- read.csv(file = "PowerRanking.csv",header = T,
+                                            stringsAsFactors = F,sep = ",")
+csvmdPowerfulCeleb
 
 #8.d  Access the rows 10 to 20 and save it as Ranks.RData.
 # Write the R script and its output.
@@ -139,8 +166,9 @@ View(powerfulCelebrities)
 #9 Download the Hotels-Vienna https://tinyurl.com/Hotels-Vienna
 
 #9.a Import the excel file into your RStudio.
+
 library(readxl)
-hotels_vienna <- read_excel("Rworksheets_Quillo#1.R./hotels-vienna.xlsx")
+hotels_vienna <- read_excel("hotels-vienna.xlsx")
 View(hotels_vienna)
 
 #9.b How many dimensions does the dataset have?
@@ -148,21 +176,28 @@ View(hotels_vienna)
 
 dimensionofHotel <- dim(hotels_vienna)
 dimensionofHotel
-View(dimensionofHotel)
+
 
 #9.c Select columns country, neighbourhood,
 # price, stars, accomodation_type, and
 # ratings. Write the R script.
 
 filcol <- hotels_vienna[c(1,6,7,9,22,24)]
-View(filcol)
-
+filcol
 
 #9.d Save the data as **new.RData to your RStudio. Write the
 # R script.
-ee
 
+save(filcol, file = "**new.RData")
 
+#9.e  Display the frst six rows and last six rows of the
+# new.RData. What is the R script?
+
+head(filcol)[[1]]
+
+tail(filcol)[[1]]
+
+  
 #10 Create a list of ten (10) vegetables you ate during your lifetime. If none, ust list down.
 #10.a Write the R scripts and its output.
 
@@ -187,3 +222,4 @@ newvegiesate2
 
 newvegiesate3 <- newvegiesate2[c(-5,-10,-15)]
 newvegiesate3
+
