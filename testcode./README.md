@@ -2,6 +2,6 @@
 
 ## THIS IS  DUMP CODE
 
-DONT MINE THIS!!
+DONT MINED THIS!!
 
 Thank you
