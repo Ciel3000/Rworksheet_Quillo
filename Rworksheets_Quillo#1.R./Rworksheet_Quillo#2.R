@@ -18,11 +18,11 @@ vect1
 #24,33, 41, 53, 40, 18, 44, 38, 41, 48, 27, 39, 19, 30, 61, 54, 58, 26,
 #18.
 
-age <- c(34, 28, 22, 36, 27, 18, 52, 39, 42, 29, 35, 31, 27,
+age <- list(34, 28, 22, 36, 27, 18, 52, 39, 42, 29, 35, 31, 27,
          22, 37, 34, 19, 20, 57, 49, 50, 37, 46, 25, 17, 37, 43, 53, 41, 51, 35,
          24,33, 41, 53, 40, 18, 44, 38, 41, 48, 27, 39, 19, 30, 61, 54, 58, 26,
          18)
-
+age
 #3.a Access 3rd element, what is the value?
 age3rd <- age[3]
 age3rd  
@@ -121,6 +121,7 @@ mdPowerfulCelebrities
 # as csv fle(PowerRanking). Import the csv fle into
 # the RStudio. What is the R script?
 
+
 #8.d  Access the rows 10 to 20 and save it as Ranks.RData.
 # Write the R script and its output.
 
@@ -133,11 +134,32 @@ filMdPay
 
 filPowerfulCelebrity <- data.frame("Rank" = filMdPowerRankings, "Celebrity Name" = filCelebirtyName, "Pay" = filMdPay)  
 filPowerfulCelebrity
+View(powerfulCelebrities)
 
 #9 Download the Hotels-Vienna https://tinyurl.com/Hotels-Vienna
 
-#.a Import the excel file into your RStudio.
+#9.a Import the excel file into your RStudio.
+library(readxl)
+hotels_vienna <- read_excel("Rworksheets_Quillo#1.R./hotels-vienna.xlsx")
+        View(hotels_vienna)
 
+#9.b How many dimensions does the dataset have?
+# What is the R script? WHat is its output?
+
+dimensionofHotel <- dim(hotels_vienna)
+dimensionofHotel
+View(dimensionofHotel)
+
+#9.c Select columns country, neighbourhood,
+# price, stars, accomodation_type, and
+# ratings. Write the R script.
+
+filcol <- hotels_vienna[c(1,6,7,9,22,24)]
+View(filcol)
+
+
+#9.d Save the data as **new.RData to your RStudio. Write the
+# R script.
 
 
 
