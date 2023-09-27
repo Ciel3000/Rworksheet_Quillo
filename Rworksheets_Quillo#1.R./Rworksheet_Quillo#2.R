@@ -160,7 +160,7 @@ View(filcol)
 
 #9.d Save the data as **new.RData to your RStudio. Write the
 # R script.
-
+ee
 
 
 #10 Create a list of ten (10) vegetables you ate during your lifetime. If none, ust list down.
