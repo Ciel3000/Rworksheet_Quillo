@@ -1,10 +1,11 @@
-#1
-#a
+#1Create a vector using : operator
+#a Sequence from -5 to 5. Write the R code and its output.
+# Describe its output.
 
 operator <- seq(-5,5)
 operator
 
-#b
+#b x <- 1:7. What will be the value of x?
 
 x <- 1:7
 x
