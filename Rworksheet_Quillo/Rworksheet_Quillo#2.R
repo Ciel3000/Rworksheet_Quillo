@@ -31,17 +31,17 @@ workersAge
 
 #3.a Access 3rd element, what is the value?
 
-age3rd <- age[3]
+age3rd <- workersAge[3]
 age3rd  
 
 #3.b Access 2nd and 4th element, what are the values?
 
-age2and4 <- age[c(2,4)]
+age2and4 <- workersAge[c(2,4)]
 age2and4
 
 #3.c Access all but the 4th and 12th element is not
 
-allageexp4and12 <- age[-c(4,12)]
+allageexp4and12 <- workersAge[-c(4,12)]
 allageexp4and12
 
 #4 *Create a vector x <- c("first"=3, "second"=0, "third"=9). Then named the
@@ -188,16 +188,19 @@ filcol
 #9.d Save the data as **new.RData to your RStudio. Write the
 # R script.
 
-save(filcol, file = "**new.RData")
+save(filcol, file = "new.RData")
 
 #9.e  Display the frst six rows and last six rows of the
 # new.RData. What is the R script?
+
+
+load("new.RData")
+
 
 head(filcol)[[1]]
 
 tail(filcol)[[1]]
 
-  
 #10 Create a list of ten (10) vegetables you ate during your lifetime. If none, ust list down.
 #10.a Write the R scripts and its output.
 
