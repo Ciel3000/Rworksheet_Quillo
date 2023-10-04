@@ -116,7 +116,7 @@ dimnames(mat2x) <- list(c("isa","dalawa","tatlo"),c("uno","dos","tres","quatro")
 View(mat2x)
 
 #2h
-
+q
 mat1
 dim(mat1) <- c(6,2)
 mat1

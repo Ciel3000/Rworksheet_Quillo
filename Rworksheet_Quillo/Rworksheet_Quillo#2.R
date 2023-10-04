@@ -150,7 +150,7 @@ csvmdPowerfulCeleb <- read.csv(file = "PowerRanking.csv",header = T,
                                             stringsAsFactors = F,sep = ",")
 csvmdPowerfulCeleb
 
-#8.d  Access the rows 10 to 20 and save it as Ranks.RData.
+0#8.d  Access the rows 10 to 20 and save it as Ranks.RData.
 # Write the R script and its output.
 
 filMdPowerRankings <- mdPowerRanking[c(10:20)]
