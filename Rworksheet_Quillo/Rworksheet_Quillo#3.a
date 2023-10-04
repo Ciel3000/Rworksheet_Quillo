@@ -1,0 +1,126 @@
+---
+title: "RWorksheet_Quillo#3a"
+author: "Carl"
+date: "2023-10-04"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r name, echo = true}
+
+
+LETTERS
+
+#1.a
+vecLetters <- LETTERS[c(1:11)]
+vecLetters
+
+#1.b
+letCounter <- length(LETTERS)
+
+oddLetters <- LETTERS[seq(letCounter) %% 2 == 1]
+oddLetters
+
+#1.c
+vowLetters <- LETTERS[c(1,5,9,15,21)]
+vowLetters
+
+#1.d
+letters
+
+low5letters <- letters[c(22:26)]
+low5letters
+
+#1.e
+
+low15to24 <- letters[c(15:24)]
+low15to24
+
+#2
+
+#2.a
+vecCity <- c("Tuguegarao City", "Manila", "Iloilo City", "Tacloban", "Samal Island", "Davao City")
+
+#2.b
+vecTemp <- c(42, 39, 34, 34, 30, 27)
+
+#2.c
+
+tempandCel <- data.frame(vecCity, vecTemp)
+tempandCel
+View(tempandCel)
+
+#2.d
+
+names(tempandCel) <- c("City", "Temperature")
+View(tempandCel)
+
+#2.e
+
+str(tempandCel)
+#it displayed the outputwith the class, object, and variable.
+
+#2.f
+
+rowof34 <- tempandCel[3:4,]
+rowof34
+
+#2.g
+
+temMax <- tempandCel[which.max(tempandCel$Temperature),]
+temMax
+
+temLow <- tempandCel[which.min(tempandCel$Temperature),]
+temLow
+
+##MATRICES
+
+#2 and 2a
+
+
+mat1 <- matrix(c(1:8,11:14),ncol = 4, nrow =3)
+mat1
+
+#2b
+
+mat2x <- mat1 * 2
+mat2x
+
+#2c
+
+mat2x <- mat1 *2
+mat2x
+
+#it was doubled or 2x
+
+#2d
+
+col3and4 <- mat2x[c(1,2),c(3,4)]
+col3and4
+
+#2e
+
+newcol2and3r1 <- mat2x[1,c(3,4)]
+newcol2and3
+
+#2f
+newcol2and3r3 <- mat2x[3,c(3,4)]
+newcol2and3r3
+
+#2g
+
+dimnames(mat2x) <- list(c("isa","dalawa","tatlo"),c("uno","dos","tres","quatro"))
+View(mat2x)
+
+#2h
+
+mat1
+dim(mat1) <- c(6,2)
+mat1
+
+```
+
+

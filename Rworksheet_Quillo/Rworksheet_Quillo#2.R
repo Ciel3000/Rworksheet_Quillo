@@ -197,7 +197,6 @@ save(filcol, file = "new.RData")
 
 load("new.RData")
 
-
 head(filcol)[[1]]
 
 tail(filcol)[[1]]
