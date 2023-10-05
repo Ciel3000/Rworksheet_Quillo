@@ -9,7 +9,7 @@ output: pdf_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-```{r name, echo = true}
+```{r, echo = true}
 
 
 LETTERS
@@ -116,10 +116,31 @@ dimnames(mat2x) <- list(c("isa","dalawa","tatlo"),c("uno","dos","tres","quatro")
 View(mat2x)
 
 #2h
-q
+
 mat1
 dim(mat1) <- c(6,2)
 mat1
+
+
+#3a
+
+randomNum <- array(c(1, 2, 3, 6, 7, 8, 9, 0, 3, 4, 5, 1),c(2,4,3))
+randomNum
+
+#3b
+
+dim(randomNum)
+
+#3c
+
+colnames(randomNum) <- c("A","B","C","D")
+randomNum
+
+rownames(randomNum) <- c("a","b")
+randomNum
+
+dimnames(randomNum)[[3]] <- c("1st-Dimensional Array", "2nd-Dimensional Array","3rd-Dimensional Array")
+randomNum
 
 ```
 
