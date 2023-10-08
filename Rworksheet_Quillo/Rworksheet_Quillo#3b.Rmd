@@ -155,8 +155,10 @@ mtxNNP <- cbind(
   c("4100+", "2750+", "3300+")
 )
                         
-          
+           
 dimnames(mtxNNP) <- list(c("Negative", "Neutral", "Positive"), c("July 14, 2020", "July 15, 2020","July 17, 2020","July 18,2022","July 20, 2020","July 21, 2020"))
+
+
 mtxNNP
 
 
