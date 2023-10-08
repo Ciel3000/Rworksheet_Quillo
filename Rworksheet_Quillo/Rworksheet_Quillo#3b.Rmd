@@ -9,7 +9,7 @@ output: pdf_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-```{r, echo = true}
+```{r, echo = TRUE}
 #1a
 
 dfRespondents <- c(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20)
@@ -26,7 +26,7 @@ dfHouseholdData <- data.frame("Respondents" = dfRespondents,
                               "Siblings at School" = dfSiblingsatSch,
                               "Types of Houses" = dfTypesofHouses)
 dfHouseholdData
-View(dfHouseholdData)
+
 
 #1b
 #the data is about a Household occupants
@@ -49,19 +49,19 @@ third5and24
 #f
 types_houses <- dfHouseholdData[,1]
 types_houses
-View(types_houses)
+
 
 #g
 
 dfMaleFatherOcc <- dfHouseholdData[dfHouseholdData$Sex == 1 & dfHouseholdData$Fathers.Occupation == 1, c(2,3)]
 dfMaleFatherOcc
-View(dfMaleFatherOcc)
+
 
 #h
 
 dfFemaleSiblings <- dfHouseholdData[dfHouseholdData$Sex == 2 & dfHouseholdData$Siblings.at.School >= 5, c(2,5) ]
 dfFemaleSiblings
-View(dfFemaleSiblings)
+
 
 
 
@@ -98,7 +98,7 @@ df2HouseholdData <- data.frame("Respondetns" = df2Respondents,
                                "Type of Houses" = df2TypeofHouses)
 df2HouseholdData
 
-View(df2HouseholdData)
+
 
 write.csv(df2HouseholdData, file = "HouseholdData.csv")
 
@@ -107,14 +107,14 @@ write.csv(df2HouseholdData, file = "HouseholdData.csv")
 
 csvHouseholdData <- read.csv(file = "HouseholdData.csv")
 csvHouseholdData
-View(csvHouseholdData)
+
 
 #3b
 
 
 csvHouseholdDataSex <- as.integer(factor(csvHouseholdData$Sex, levels = c("Male", "Female")))
 csvHouseholdDataSex
-View(csvHouseholdDataSex)
+
 
 
 #3c
@@ -135,13 +135,13 @@ csvHouseholdDataFathersOcc
 
 csvHouseholdDataFemaleFatherOcc <- csvHouseholdData[csvHouseholdData$Sex == "Female" & csvHouseholdData$Fathers.Occupation == 2, c(3,4)]
 csvHouseholdDataFemaleFatherOcc
-View(csvHouseholdDataFemaleFatherOcc)
+
 
 #3f
 
 csvHouseholdDataSibmorethan5 <- csvHouseholdData[csvHouseholdData$Siblings.at.Schoo >= 5 , c(2,6)]
 csvHouseholdDataSibmorethan5
-View(csvHouseholdDataSibmorethan5)
+
 
 #4
 #
@@ -158,7 +158,7 @@ mtxNNP <- cbind(
           
 dimnames(mtxNNP) <- list(c("Negative", "Neutral", "Positive"), c("July 14, 2020", "July 15, 2020","July 17, 2020","July 18,2022","July 20, 2020","July 21, 2020"))
 mtxNNP
-View(mtxNNP)
+
 
 ```
 
