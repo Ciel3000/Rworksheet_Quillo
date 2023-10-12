@@ -47,7 +47,7 @@ third5and24 <- dfHouseholdData[c(3,5),c(2,4)]
 third5and24
 
 #f
-types_houses <- dfHouseholdData[,1]
+types_houses <- dfHouseholdData[,6]
 types_houses
 
 
@@ -128,7 +128,9 @@ csvHouseholdDataTypeofHouses
 #3d
 #its already on int type
 csvHouseholdData$Fathers.Occupation
-csvHouseholdDataFathersOcc <- as.integer(factor(csvHouseholdData$Fathers.Occupation, levels = c("")))
+
+csvHouseholdDataFathersOcc  <- factor(csvHouseholdData$Fathers.Occupation, levels = c(1,2,3), labels = c("Farmer", "Driver", "Others"))
+
 csvHouseholdDataFathersOcc
 
 #3e
@@ -161,6 +163,29 @@ dimnames(mtxNNP) <- list(c("Negative", "Neutral", "Positive"), c("July 14, 2020"
 
 
 mtxNNP
+
+
+# In contrast with the other sentiments, there were more negative sentiments on July 14. This could represent a sign that certain occurrences or themes that day attracted adverse reactions.
+
+
+# All attitudes increased on July 15, with the negative sentiment reaching its maximum level. This may indicate that something occurred on that day to cause negative reactions.
+
+
+# July 17 - the negative opinions persisted and were still relatively substantial in comparison to the neutral and supportive opinions.
+
+
+#July 18 - negative feelings persisted and were relatively strong compared to the neutral and    positive sentiments.
+
+
+# The lowest point for all attitudes occurred on July 20, however there were still more negative    feelings than the other days. This can mean that nothing occurred that day.
+
+#July 21 - all reactions increased, with the negative mood reaching its highest level. This can also mean that something happened on that day that might have caused others to react negatively.
+
+
+# We might conclude from this data that society's opinion is affected by outside factors and that it change over time.
+
+
+
 
 
 ```
