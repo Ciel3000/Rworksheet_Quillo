@@ -10,7 +10,9 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ```{r WS4, echo = TRUE}
-  
+#1. The table shows the data about shoe size and height. Create a data frame.
+
+#1. a
 dfHouseholdData <- data.frame("Shoe size" =c(6.5,9.0,8.5,8.5,10.5,7.0,9.5,9.0,13.0,7.5,10.5,8.5,12.0,10.5,13.0,11.5,8.5,5.0,10.0,6.5,7.5,8.5,10.5,8.5,10.5,11.0,9.0,13.0),
                               "Height" = c(66.0,68.0,64.5,65.0,70.0,64.0,70.0,71.0,72.0,64.0,74.5,67.0,71.0,71.0,77.0,72.0,59.0,62.0,72.0,66.0,64.0,67.0,73.0,69.0,72.0,70.0,69.0,70.0),
                               "Gender" = c("F","F","F","F","M","F","F","F","M","F","M","F","M","M","M","M","F","F","M","F","F","M","M","F","M","M","M","M"))
@@ -57,7 +59,7 @@ sumoffacmonths <- summary(factor_months_vector)
 sumoffacmonths
 
 
-# 4 
+# 4 Create a vector and factor
 
 direction_vector <- c("East", "West", "West", "West", "West", "North", "North", "North")
 
@@ -84,7 +86,8 @@ if(inputnum > 50){
   paste("The number selected is beyond the range of 1 to 50")
 }
 
-# 7 
+# 7 Write a function that prints the minimum number of bills that must be paid, given the price of the snack.
+#Input: Price of snack (a random number divisible by 50) Output: Minimum number of bills needed to purchase a snack.
 
 priceofsnack <- as.numeric(readline(paste("Enter the price of the snacks: ")))
 
@@ -96,7 +99,7 @@ numofbills <- function(priceofsnack){
 }
 
 
-# 8a
+# 8a Create a dataframe from the above table. Write the R codes and its output.
 dfstudents <- data.frame("Name" = c("Annie","Thea", "Steve","Hanna"),
                          "Grade 1" = c(85,65,75,95),
                          "Grade 2" = c(65,75,55,75),
@@ -104,7 +107,7 @@ dfstudents <- data.frame("Name" = c("Annie","Thea", "Steve","Hanna"),
                          "Grade 4" = c(100,90,85,90))
 dfstudents
 
-#8b
+#8b Without using the rowMean function, output the average score of students whose average math score over 90 points during the semester. write R code and its output.
 
 test_averages <- rowSums(dfstudents[, -1]) / ncol(dfstudents[, -1])
 test_averages
@@ -115,7 +118,7 @@ high_scorers$average_grade <- test_averages[test_averages> 90]
 
 cat("if none appears means that no student has an average math score over 90 points during the semester")
 
-#8c
+#8c Without using the mean function, output as follows for the tests in which the average score was less than 80 out of 4 tests.
 
 test_averages <- rowSums(dfstudents[, -1]) / ncol(dfstudents[, -1])
 test_averages
@@ -130,7 +133,7 @@ if (length(difficult_tests) > 0) {
   cat("No test was difficult.\n")
 }
 
-#8d
+#8d Without using the max function, output as follows for students whose highest score for a semester exceeds 90 points.
 
 highest_grades <- numeric(nrow(dfstudents))
 
