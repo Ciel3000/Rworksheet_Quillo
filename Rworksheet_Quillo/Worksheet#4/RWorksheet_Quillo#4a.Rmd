@@ -1,0 +1,101 @@
+---
+title: "RWorksheet_Quillo#4a"
+author: "Carl"
+date: "2023-10-25"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r WS4, echo = TRUE}
+  
+dfHouseholdData <- data.frame("Shoe size" =c(6.5,9.0,8.5,8.5,10.5,7.0,9.5,9.0,13.0,7.5,10.5,8.5,12.0,10.5,13.0,11.5,8.5,5.0,10.0,6.5,7.5,8.5,10.5,8.5,10.5,11.0,9.0,13.0),
+                              "Height" = c(66.0,68.0,64.5,65.0,70.0,64.0,70.0,71.0,72.0,64.0,74.5,67.0,71.0,71.0,77.0,72.0,59.0,62.0,72.0,66.0,64.0,67.0,73.0,69.0,72.0,70.0,69.0,70.0),
+                              "Gender" = c("F","F","F","F","M","F","F","F","M","F","M","F","M","M","M","M","F","F","M","F","F","M","M","F","M","M","M","M"))
+View(dfHouseholdData)
+
+# 1. B.Create a subset by males and females with their corresponding shoe size and height.
+# What its result? Show the R scripts.
+
+subMaleShoeSize <- subset(dfHouseholdData, Gender == 'M')
+subMaleShoeSize
+
+subFemaleShoeSize <- subset(dfHouseholdData, Gender == 'F')
+subFemaleShoeSize
+
+#1.C Find the mean of shoe size and height of the respondents. Write the R scripts and its
+# result.
+
+shoeSizeandHeight <- mean(dfHouseholdData$Shoe.size & dfHouseholdData$Height)
+shoeSizeandHeight
+ 
+#1.D Is there a relationship between shoe size and height? Why?
+
+# if the height is small the shoe size it also small
+
+
+# 2 Construct character vector months to a factor with factor() and assign the result to
+# factor_months_vector. Print out factor_months_vector and assert that R prints out
+# the factor levels below the actual values.
+
+months_vector <- c("March","April","January","November","January","September","October","September","November","August","January","November","November","February","May","August","July","December","August","August","September","November","February","April")
+months_vector
+
+factor_months_vector <- factor(months_vecror)
+factor_months_vector
+
+#3 Then check the summary() of the months_vector and factor_months_vector. | Inter-
+# pret the results of both vectors. Are they both equally useful in this case?
+
+sumofmonths <- summary(months_vector)
+sumofmonths
+
+sumoffacmonths <- summary(factor_months_vector)
+sumoffacmonths
+
+
+# 4 
+
+factor_data[c(1,3,4)]
+new_order_data <- factor(factor_data,levels = c("East","West","North"))
+print(new_order_data)
+
+#5
+
+excelData<- read.csv("import_match.csv")
+
+View(excelData)
+
+#6a Create an R Program that allows the User to randomly select numbers from 1 to 50.
+# Then display the chosen number. If the number is beyond the range of the selected choice,
+# it will have to display a string “The number selected is beyond the range of 1 to 50”. If
+#number 20 is inputted by the User, it will have to display “TRUE”, otherwise display the input number.
+
+inputnum <- readline(paste("Eneter a number from 1 to 50"))
+
+if(inputnum > 50){
+  paste("You Enetered ", inputnum)
+}else{
+  paste("The number selected is beyond the range of 1 to 50")
+}
+
+# 7 
+
+priceofsnack <- as.numeric(readline(paste("Enter the price of the snacks")))
+
+numofbills <- function(priceofsnack){
+  
+  minBills <- priceofsnack %% 50
+  paste("The minimum number of bills is:", minBills)
+  
+}
+
+
+
+
+
+
+
+```
