@@ -69,7 +69,6 @@ print(direction_factor)
 
 #5
 
-
 csvdata <- read.table(file = "import_match.csv", sep = ",", header = TRUE)
 csvdata
 
