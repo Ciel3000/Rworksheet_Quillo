@@ -113,19 +113,27 @@ test_averages <- rowSums(dfstudents[, -1]) / ncol(dfstudents[, -1])
 test_averages
 
 high_scorers <- dfstudents[test_averages >= 90, ]
-high_scorers <- high_scorers[ 0, c("name")]
-high_scorers$average_grade <- test_averages[test_averages> 90]
 
-cat("if none appears means that no student has an average math score over 90 points during the semester")
+if(nrow(high_scorers) > 0){
+   paste(dfstudents$Name, "'s average grade this semester is", test_averages)
+}else{
+  paste("No student has an average math score over 90 points during the semester")
+}
+
 
 #8c Without using the mean function, output as follows for the tests in which the average score was less than 80 out of 4 tests.
 
-test_averages <- rowSums(dfstudents[, -1]) / ncol(dfstudents[, -1])
-test_averages
+avegrade1 <- sum(dfstudents$Grade.1) /4
 
+avegrade2 <- sum(dfstudents$Grade.2) /4
+
+avegrade3 <- sum(dfstudents$Grade.3) /4
+
+avegrade4 <- sum(dfstudents$Grade.4) /4
+
+test_averages  <- c(avegrade1, avegrade2, avegrade3, avegrade4)
 
 difficult_tests <- which(test_averages < 80)
-
 
 if (length(difficult_tests) > 0) {
   cat(paste("The grade", paste(difficult_tests, collapse = ", "), "test(s) were difficult.\n"))
@@ -135,31 +143,59 @@ if (length(difficult_tests) > 0) {
 
 #8d Without using the max function, output as follows for students whose highest score for a semester exceeds 90 points.
 
-highest_grades <- numeric(nrow(dfstudents))
+df1strow <- dfstudents[1,2:5]
+df2ndrow <- dfstudents[2,2:5]
+df3rdrow <- dfstudents[3,2:5]
+df4throw <- dfstudents[4,2:5]
 
-# Find and store the highest grade for each student without using max
-for (i in 1:nrow(dfstudents)) {
-  student_scores <- dfstudents[i, 2:5]
-  highest_grade <- student_scores[1]
-  for (score in student_scores) {
-    if (score > highest_grade) {
-      highest_grade <- score
-    }
-  }
-  highest_grades[i] <- highest_grade
+if(df1strow[1] > 90){
+  paste("Annie highest grade this semester is",df1strow[1],"")
+}else if(df1strow[2] >90){
+  paste("Annie highest grade this semester is",df1strow[2],"")
+}else if(df1strow[3] >90){
+  paste("Annie highest grade this semester is",df1strow[3],"")
+}else if(df1strow[4] >90){
+  paste("Annie highest grade this semester is",df1strow[4],"")
+}else{
+  paste("Annie has no grade that is higher than 90")
 }
 
-# Check which students have a highest grade exceeding 90 and print the output
-high_scorers <- dfstudents$Name[highest_grades > 90]
-
-if (length(high_scorers) > 0) {
-  for (i in 1:length(high_scorers)) {
-    student_name <- high_scorers[i]
-    student_highest_score <- highest_grades[dfstudents$Name == student_name]
-    cat(paste(student_name, "'s highest grade this semester is", student_highest_score, ".\n"))
-  }
-} else {
-  cat("No student had a highest grade exceeding 90 points this semester.\n")
+if(df2ndrow[1] > 90){
+  paste("Thea highest grade this semester is",df2ndrow[1],"")
+}else if(df2ndrow[2] >90){
+  paste("Thea highest grade this semester is",df2ndrow[2],"")
+}else if(df2ndrow[3] >90){
+  paste("Thea highest grade this semester is",df2ndrow[3],"")
+}else if(df2ndrow[4] >90){
+  paste("Thea highest grade this semester is",df2ndrow[4],"")
+}else{
+  paste("Thea has no grade that is higher than 90")
 }
+
+if(df3rdrow[1] > 90){
+  paste("Steve highest grade this semester is",df3rdrow[1],"")
+}else if(df3rdrow[2] >90){
+  paste("Steve highest grade this semester is",df3rdrow[2],"")
+}else if(df3rdrow[3] >90){
+  paste("Steve highest grade this semester is",df3rdrow[3],"")
+}else if(df3rdrow[4] >90){
+  paste("Steve highest grade this semester is",df1strow[4],"")
+}else{
+  paste("Steve has no grade that is higher than 90")
+}
+
+
+  if(df4throw[1] > 90){
+      paste("Hanna highest grade this semester is",df4throw[1],"")
+  }else if(df4throw[2] >90){
+      paste("Hanna highest grade this semester is",df4throw[2],"")
+  }else if(df4throw[3] >90){
+    paste("Hanna highest grade this semester is",df4throw[3],"")
+  }else if(df4throw[4] >90){
+    paste("Hanna highest grade this semester is",df4throw[4],"")
+  }else{
+  paste("Hanna has no grade that is higher than 90")
+}
+
 
 ```
