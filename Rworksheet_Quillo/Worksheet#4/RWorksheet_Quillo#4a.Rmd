@@ -186,8 +186,8 @@ if(df3rdrow[1] > 90){
 
 
   if(df4throw[1] > 90){
-      paste("Hanna highest grade this semester is",df4throw[1],"")
-  }else if(df4throw[2] >90){
+      paste("Hanna highest grade this semester is",df4throw[3],"")
+  }else if(df4throw[4] >90){
       paste("Hanna highest grade this semester is",df4throw[2],"")
   }else if(df4throw[3] >90){
     paste("Hanna highest grade this semester is",df4throw[3],"")
