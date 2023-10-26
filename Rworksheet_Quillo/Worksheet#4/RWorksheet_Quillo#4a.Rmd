@@ -69,9 +69,9 @@ print(direction_factor)
 
 #5
 
-excelData<- read.csv("import_match.csv")
 
-
+csvdata <- read.table(file = "import_match.csv", sep = ",", header = TRUE)
+csvdata
 
 #6a Create an R Program that allows the User to randomly select numbers from 1 to 50.
 # Then display the chosen number. If the number is beyond the range of the selected choice,
