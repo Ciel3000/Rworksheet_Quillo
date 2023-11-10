@@ -309,7 +309,7 @@ whitePlot <- barplot(height = c(91,184,78,85,109),
         xlab = "Variation",
         ylab = "Count",)
   
-png("whitePlot")
+png("whitePlot.png")
 png("blackPlot.png")
 
 ```
