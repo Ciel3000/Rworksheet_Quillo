@@ -283,6 +283,10 @@ varPlot <- barplot(totalofeachVar,
         las = 2,
         space = 2)
 
+png("varPlot.png")
+
+
+
 ```
 
 7.d. Create a barplot() for the black and white variations. Plot it in 1 frame, side by side. Complete the details of the chart.
@@ -311,5 +315,7 @@ whitePlot <- barplot(height = c(91,184,78,85,109),
   
 png("whitePlot.png")
 png("blackPlot.png")
+
+par(mfrow = c(1,1))
 
 ```
