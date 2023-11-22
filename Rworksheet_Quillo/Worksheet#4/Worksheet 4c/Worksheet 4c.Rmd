@@ -1,0 +1,127 @@
+---
+title: "Worksheet 4c"
+author: "Carl"
+date: "2023-11-22"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+1. Use the dataset mpg
+```{r}
+
+
+```
+1a. Show your solutions on how to import a csv file into the environmen
+```{r}
+mpg <- read.csv("mpg.csv")
+
+
+```
+
+1b. Which variables from mpg dataset are categorical?
+```{r}
+# all the colums exept colum "X"
+
+```
+
+1c. Which are continuous variables?
+```{r}
+
+mpg$model
+mpg$displ
+mpg$cyl
+mpg$cty
+mpg$hwy
+
+```
+
+2. Which manufacturer has the most models in this data set? Which model has the most variations?
+Show your answer.
+```{r}
+maxmod <- table(mpg$manufacturer)
+#dodge has most model
+
+maxvarofmod <- table(mpg$model)
+#caravan 2wd has the most Variations
+
+
+```
+2a. Group the manufacturers and find the unique models. Show your codes and result.
+```{r}
+
+tableofmm <- data.frame(mpg$manufacturer, mpg$model)
+
+unofmm <- unique(tableofmm)
+
+ddofun <- data.frame(unofmm[,0],unofmm[,1])
+
+```
+
+2b. Graph the result by using plot() and ggplot(). Write the codes and its result.
+```{r}
+
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
