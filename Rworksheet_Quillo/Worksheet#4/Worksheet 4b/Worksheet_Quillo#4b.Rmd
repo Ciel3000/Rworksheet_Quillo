@@ -44,13 +44,13 @@ for (i in 1:5) {
 }
 ```
 
-```{r}
+```{r, include = T/F}
 #3 Get an input from the user to print the Fibonacci sequence starting from the 1st input up to 500. Use repeat and break statements. Write the R Scripts and its output.
 
 readlineInput <- as.integer(readline("Enter the starting Fibonacci sequence number: "))
 
 if(is.na(readlineInput || readlineInput < 0)) {
-  cat("Error: Enter a number!")
+cat("Error: Enter a number!")
 } else {
   
 userinput <- readlineInput
@@ -284,8 +284,6 @@ varPlot <- barplot(totalofeachVar,
         space = 2)
 
 png("varPlot.png")
-
-
 
 ```
 
