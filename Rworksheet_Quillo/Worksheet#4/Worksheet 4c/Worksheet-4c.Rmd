@@ -153,11 +153,11 @@ ggplot(top_20, aes(x = interaction(model, year), fill = interaction(model, year)
 4. Using the pipe (%>%), group the model and get the number of cars per model. Show codes and its result
 ```{r}
 
-cars_per_model <- mpg %>%
+carsPerModel <- mpg %>%
   group_by(model) %>%
   summarise(number_of_cars = n())
 
-cars_per_model
+carsPerModel
 
 ```
 
@@ -165,39 +165,32 @@ cars_per_model
 colors. Show code and results.
 ```{r}
 
-top_20 <- head(mpg, 20)
+top20 <- head(carsPerModel, 20)
 
-cars_per_model <- top_20 %>%
-  group_by(model) %>%
-  summarise(number_of_cars = n())
+plotofTop20 <- ggplot(top20, aes(x = model, y = number_of_cars, fill = model)) + 
+  geom_bar(stat = "identity") + 
+  labs(title = "Number of Cars per Model", 
+       x = "Model" , 
+       y = "Number of cars") + theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
-ggplot(cars_per_model, aes(x = model, y = number_of_cars)) +
-  geom_bar(stat = "identity", fill = "violet") +
-  labs(title = "Number of Cars per Model (Top 20 Observations)",
-       x = "Model",
-       y = "Number of Cars") +
-  theme_minimal() +
-  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+plotofTop20
+
 
 ```
 
 4b. Plot using the geom_bar() + coord_flip() just like what is shown below. Show codes and its result.
 ```{r}
 
-top_20 <- head(mpg, 20)
 
-cars_per_model <- top_20 %>%
-  group_by(model) %>%
-  summarise(number_of_cars = n())
-
-# Plot the result using geom_bar() with coord_flip()
-ggplot(cars_per_model, aes(x = model, y = number_of_cars)) +
-  geom_bar(stat = "identity", fill = "violet") +
-  labs(title = "Number of Cars per Model (Top 20 Observations)",
-       x = "Number of Cars",
-       y = "Model") +
-  theme_minimal() +
+lotofTop20 <- ggplot(top20, aes(x = model, y = number_of_cars, fill = model)) + 
+  geom_bar(stat = "identity") + 
+  labs(title = "Number of Cars per Model", 
+       x = "Model" , 
+       y = "Number of cars") +
   coord_flip()
+
+print(lotofTop20)
+
 
 ```
 
