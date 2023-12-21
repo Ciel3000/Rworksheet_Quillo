@@ -1,0 +1,290 @@
+---
+title: "Worksheet_#5"
+author: "Carl Louie A. Quillo"
+date: "2023-12-11"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+1. Create a data frame for the table below. Show your solution.
+
+```{r}
+
+student <- c(1,2,3,4,5,6,7,8,9,10)
+pre_test_scores <- c(55, 54, 47, 57, 51, 61, 57, 54, 63, 58)
+post_test_scores <- c(61, 60, 56, 63, 56, 63, 59, 56, 62, 61)
+
+studenttest <- data.frame(student, pre_test_scores, post_test_scores)
+
+```
+a. Compute the descriptive statistics using different packages (Hmisc and pastecs).
+Write the codes and its result.
+```{r}
+library(Hmisc)
+library(pastecs)
+
+sumofstudents <- summary(student)
+startifstudents <- stat.desc(student)
+
+```
+2. The Department of Agriculture was studying the effects of several levels of a fertilizer
+on the growth of a plant. For some analyses, it might be useful to convert the fertilizer
+levels to an ordered factor.
+
+• The data were 10,10,10, 20,20,50,10,20,10,50,20,50,20,10.
+a. Write the codes and describe the result.
+```{r}
+
+fertilizerlevel <- c(10,10,10,20,20,50,10,20,10,50,20,50,20,10)
+sortedFert <- sort(fertilizerlevel)
+orderedFert <- order(fertilizerlevel)
+```
+
+3. Abdul Hassan, president of Floor Coverings Unlimited, has asked you to study the ex-
+ercise levels undertaken by 10 subjects were “l”, “n”, “n”, “i”, “l” , “l”, “n”,
+
+“n”, “i”, “l” ; n=none, l=light, i=intense
+```{r}
+exercise_levels <- c("l", "n", "i")
+
+subject_exercise_levels <- c("l", "n", "n", "i", "l", "l", "n", "n", "i", "l")
+
+ordered_exercise_levels <- factor(subject_exercise_levels, levels = exercise_levels)
+
+summary(ordered_exercise_levels)
+```
+4. Sample of 30 tax accountants from all the states and territories of Australia and their
+individual state of origin is specified by a character vector of state mnemonics as:
+
+```{r}
+state <- c("tas", "sa", "qld", "nsw", "nsw", "nt", "wa", "wa", "qld",
+"vic", "nsw", "vic", "qld", "qld", "sa", "tas", "sa", "nt",
+"wa", "vic", "qld", "nsw", "nsw", "wa", "sa", "act", "nsw",
+"vic", "vic", "act")
+```
+a. Apply the factor function and factor level. Describe the results.
+```{r}
+
+state_factor <- factor(state)
+state_factor_level <- levels(state_factor)
+
+
+```
+5. From #4 - continuation:
+
+• Suppose we have the incomes of the same tax accountants in another vector (in suitably
+large units of money)
+incomes <- c(60, 49, 40, 61, 64, 60, 59, 54,
+62, 69, 70, 42, 56, 61, 61, 61, 58, 51, 48,
+65, 49, 49, 41, 48, 52, 46, 59, 46, 58, 43)
+```{r}
+
+incomes <- c(60, 49, 40, 61, 64, 60, 59, 54,
+62, 69, 70, 42, 56, 61, 61, 61, 58, 51, 48,
+65, 49, 49, 41, 48, 52, 46, 59, 46, 58, 43)
+
+```
+a. Calculate the sample mean income for each state we can now use the special function
+```{r}
+
+mean_factor <- tapply(incomes, state_factor, mean)
+
+```
+b. Copy the results and interpret.
+
+ act      nsw       nt      qld       sa      tas      vic       wa 
+44.50000 57.33333 55.50000 53.60000 55.00000 60.50000 56.00000 52.25000 
+
+
+6. Calculate the standard errors of the state income means (refer again to number 3)
+```{r}
+
+state_counts <- table(state_factor)
+
+stdError <- sqrt(mean_factor^2/state_counts)
+
+
+```
+a. What is the standard error? Write the codes.
+```{r}
+
+state_se <- sqrt(sum(incomes^2) / length(incomes))
+
+```
+b. Interpret the result.
+```{r}
+#a state with a wide range of income values may have a higher standard error compared to a state with a narrow range of income     values, even if both standard errors are within the margin of error
+```
+
+7. Use the titanic dataset.
+a. subset the titatic dataset of those who survived and not survived. Show the codes
+and its result.
+```{r}
+library(dplyr)
+
+data("Titanic")
+
+Titanic <- data.frame(Titanic)
+
+survived <- Titanic %>%
+ filter(Survived == "Yes")
+
+survived
+
+not_survived <- Titanic %>%
+ filter(Survived == "No")
+
+not_survived
+
+```
+8. The data sets are about the breast cancer Wisconsin. The samples arrive periodically
+as Dr. Wolberg reports his clinical cases. The database therefore reflects this
+
+chronologihttps://drive.google.com/file/d/16MFLoehCgx2MJuNSAuB2CsBy6eDIIr-
+u/view?usp=drive_link)
+```{r}
+
+library(readr)
+breastcancer_wisconsin <- read_csv("breastcancer_wisconsin.csv")
+
+```
+a. describe what is the dataset all about.
+```{r}
+
+breastcancer_wisconsin
+# Its all about breast cancer
+
+```
+d. Compute the descriptive statistics using different packages. Find the values of:
+d.1 Standard error of the mean for clump thickness.
+d.2 Coefficient of variability for Marginal Adhesion.
+d.3 Number of null values of Bare Nuclei.
+d.4 Mean and standard deviation for Bland Chromatin
+d.5 Confidence interval of the mean for Uniformity of Cell Shape
+```{r}
+#d.1 Standard error of the mean for clump thickness.
+
+clump_thickness <- as.numeric(breastcancer_wisconsin$clump_thickness)
+mean_clump_thickness <- mean(clump_thickness)
+std_dev_clump_thickness <- sd(clump_thickness)
+n <- length(clump_thickness)
+standard_error <- std_dev_clump_thickness / sqrt(n)
+standard_error
+
+#d.2 Coefficient of variability for Marginal Adhesion.
+
+marginal_adhesion <- as.numeric(breastcancer_wisconsin$marginal_adhesion)
+mean_marginal_adhesion <- mean(marginal_adhesion)
+std_dev_marginal_adhesion <- sd(marginal_adhesion)
+coefficient_of_variability <- std_dev_marginal_adhesion / mean_marginal_adhesion
+coefficient_of_variability
+
+#d.3 Number of null values of Bare Nuclei.
+
+bare_nuclei <- as.numeric(breastcancer_wisconsin$bare_nucleoli)
+number_of_null_values <- sum(is.na(bare_nuclei))
+number_of_null_values
+
+#d.4 Mean and standard deviation for Bland Chromatin
+
+bland_chromatin <- as.numeric(breastcancer_wisconsin$bland_chromatin)
+mean_bland_chromatin <- mean(bland_chromatin)
+std_dev_bland_chromatin <- sd(bland_chromatin)
+list(mean = mean_bland_chromatin, sd = std_dev_bland_chromatin)
+
+#d.5 Confidence interval of the mean for Uniformity of Cell Shape
+
+uniformity_of_cell_shape <- as.numeric(breastcancer_wisconsin$shape_uniformity)
+mean_uniformity_of_cell_shape <- mean(uniformity_of_cell_shape)
+std_dev_uniformity_of_cell_shape <- sd(uniformity_of_cell_shape)
+n <- length(uniformity_of_cell_shape)
+confidence_level <- 0.95
+z_score <- qnorm(1 - (1 - confidence_level) / 2)
+margin_of_error <- z_score * (std_dev_uniformity_of_cell_shape / sqrt(n))
+confidence_interval <- c(mean_uniformity_of_cell_shape - margin_of_error, mean_uniformity_of_cell_shape + margin_of_error)
+confidence_interval
+
+```
+d.  How many attributes?
+```{r}
+# d.1
+attribute_mean <- mean(breastcancer_wisconsin$clump_thickness)
+attribute_se <- sqrt(var(breastcancer_wisconsin$clump_thickness) / length(breastcancer_wisconsin$clump_thickness))
+
+d.1 <- attribute_se
+
+# d.2
+attribute_mean <- mean(breastcancer_wisconsin$marginal_adhesion)
+attribute_cv <- sqrt(var(breastcancer_wisconsin$marginal_adhesion) / mean(breastcancer_wisconsin$marginal_adhesion)^2)
+
+d.2 <- attribute_cv
+
+# d.3
+d.3 <- sum(is.na(breastcancer_wisconsin$bare_nuclei))
+
+# d.4 
+attribute_mean <- mean(breastcancer_wisconsin$bland_chromatin)
+attribute_std_dev <- sqrt(var(breastcancer_wisconsin$bland_chromatin))
+
+d.4 <- c(mean = attribute_mean, std_dev = attribute_std_dev)
+
+# d.5
+attribute_mean <- mean(breastcancer_wisconsin$uniformity_of_cell_shape)
+margin_of_error <- qt(0.975, df = length(breastcancer_wisconsin$uniformity_of_cell_shape) - 1) * (attribute_se / sqrt(length(breastcancer_wisconsin$uniformity_of_cell_shape)))
+
+d.5 <- c(mean = attribute_mean, 
+         lower_bound = attribute_mean - margin_of_error, 
+         upper_bound = attribute_mean + margin_of_error)
+
+```
+e. Find the percentage of respondents who are malignant. Interpret the results.
+```{r}
+
+
+breastcancer_wisconsin$clump_thickness <- as.numeric(breastcancer_wisconsin$clump_thickness)
+breastcancer_wisconsin$size_uniformity <- as.numeric(breastcancer_wisconsin$size_uniformity)
+breastcancer_wisconsin$bare_nucleoli <- as.numeric(breastcancer_wisconsin$bare_nucleoli)
+breastcancer_wisconsin$bare_nucleoli <- as.numeric(breastcancer_wisconsin$shape_uniformity)
+breastcancer_wisconsin$bare_nucleoli <- as.numeric(breastcancer_wisconsin$marginal_adhesion)
+breastcancer_wisconsin$bare_nucleoli <- as.numeric(breastcancer_wisconsin$epithelial_size)
+breastcancer_wisconsin$bare_nucleoli <- as.numeric(breastcancer_wisconsin$bland_chromatin)
+breastcancer_wisconsin$bare_nucleoli <- as.numeric(breastcancer_wisconsin$normal_nucleoli)
+breastcancer_wisconsin$bare_nucleoli <- as.numeric(breastcancer_wisconsin$mitoses)
+
+
+mean_values <- mean(breastcancer_wisconsin[,2:10])
+ 
+breastcancer_wisconsin <- rbind(breastcancer_wisconsin, mean_values)
+
+percentage_malignant <- 100 * breastcancer_wisconsin$class[breastcancer_wisconsin$class == "malignant"] / sum(breastcancer_wisconsin$class == "malignant")
+
+print(paste("Percentage of respondents who are malignant:", percentage_malignant))
+
+correlation_matrix <- cor(breastcancer_wisconsin[, c("clump_thickness", "size_uniformity", "shape_uniformity", "marginal_adhesion", "epithelial_size", "bare_nucleoli", "bland_chromatin", "normal_nucleoli", "mitoses")])
+
+
+
+```
+
+9. Export the data abalone to the Microsoft excel file. Copy the codes.
+install.packages("AppliedPredictiveModeling")
+library("AppliedPredictiveModeling")
+view(abalone)
+head(abalone)
+summary(abalone)
+ 
+```{r}
+
+#install.packages("AppliedPredictiveModeling")
+#library("AppliedPredictiveModeling")
+
+#View(abalone)
+#head(abalone)
+#summary(abalone)
+
+
+```
