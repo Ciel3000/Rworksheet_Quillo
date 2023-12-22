@@ -278,13 +278,15 @@ head(abalone)
 summary(abalone)
  
 ```{r}
-
-#install.packages("AppliedPredictiveModeling")
-#library("AppliedPredictiveModeling")
-
+install.packages("AppliedPredictiveModeling")
+library("AppliedPredictiveModeling")
+data(abalone)
 #View(abalone)
-#head(abalone)
-#summary(abalone)
+head(abalone)
+summary(abalone)
 
+library("xlsx")
+
+write.xlsx(abalone, "abalone.xlsx")
 
 ```
